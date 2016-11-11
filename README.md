@@ -50,8 +50,6 @@ addDomain:
     $archive = 14; 							//can be 14 or 365
     $report_to = 'info@yourdomain.ext'; 	//optional
         
-    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
-        
     $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to);
         
     if ($spamport -> containsError($response)) {
@@ -78,8 +76,6 @@ removeDomain:
     $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
     $domain = 'yourdomain.ext';
-        
-    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
     $response = $spamport -> removeDomain($domain);
         
