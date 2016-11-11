@@ -9,6 +9,7 @@ Current version: 1.0
 
 requestLogin:
 > <?php
+> 
 >     require_once('Spamport_api.php');
 > 	
 >     $username = 'username_here';
@@ -25,7 +26,7 @@ requestLogin:
 > 	    
 >     } else {
 > 	    
-> 	header ('Location: https://www.spamport.com/login/' . $domain . '/' . $spamport -> returnResult($response));
+>         header ('Location: https://www.spamport.com/login/' . $domain . '/' . $spamport -> returnResult($response));
 > 	    
 >     }
 > 
