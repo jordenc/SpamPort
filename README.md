@@ -10,15 +10,15 @@ Current version: 1.0
 requestLogin:
 ```php
 <?php
-	require_once($path . '/application/libraries/Spamport_api.php');
+    require_once('Spamport_api.php');
 	
-	$username = 'username_here';
+    $username = 'username_here';
     $password = 'password_here';
     $domain = 'yourdomain.here';
         
-    $spamport = new SpamPort_API ('https://www.spamport.com/api');
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
-    $response = $spamport -> requestLogin($username, $password, $domain);
+    $response = $spamport -> requestLogin($domain);
     
     if ($spamport -> containsError($response)) {
 	    
@@ -36,31 +36,63 @@ requestLogin:
 addDomain:
 ```php
 <?php
-	require_once($path . '/application/libraries/Spamport_api.php');
+    require_once('Spamport_api.php');
 	
-	$username = 'username_here';
+    $username = 'username_here';
     $password = 'password_here';
     $domain = 'yourdomain.here';
         
-    $spamport = new SpamPort_API ('https://www.spamport.com/api');
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
-    //coming soon
-    
+    $domain = 'yourdomain.ext';
+    $smtpserver = 'mail.yourdomain.ext';
+    $transport_type = 'hostname'; 			//"hostname" for a hostname, or "ip" for an IP address (ipv4/ipv6)
+    $archive = 14; 							//can be 14 or 365
+    $report_to = 'info@yourdomain.ext'; 	//optional
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
+        
+    $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to);
+        
+    if ($spamport -> containsError($response)) {
+
+        print $spamport -> returnError ($response);
+	
+    } else {
+	
+        print $spamport -> returnResult ($response);
+	
+    }
+	
 ?>
 ```
 
 removeDomain:
 ```php
 <?php
-    require_once($path . '/application/libraries/Spamport_api.php');
+    require_once('Spamport_api.php');
 	
     $username = 'username_here';
     $password = 'password_here';
     $domain = 'yourdomain.here';
         
-    $spamport = new SpamPort_API ('https://www.spamport.com/api');
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
-    //coming soon
-    
+    $domain = 'yourdomain.ext';
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
+        
+    $response = $spamport -> removeDomain($domain);
+        
+    if ($spamport -> containsError($response)) {
+
+        print $spamport -> returnError ($response);
+	
+    } else {
+	
+        print $spamport -> returnResult ($response);
+	
+    }
+	
 ?>
 ```
