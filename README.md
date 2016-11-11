@@ -9,7 +9,7 @@ Current version: 1.0
 
 requestLogin:
 <?php
-	require_once($path . '/application/libraries/Spamport_api.php');
+	require_once('Spamport_api.php');
 	
 	$username = 'username_here';
     $password = 'password_here';
