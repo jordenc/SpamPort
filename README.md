@@ -32,6 +32,35 @@ requestLogin:
     
 ?>
 ```
+
 addDomain:
+```php
+<?php
+	require_once($path . '/application/libraries/Spamport_api.php');
+	
+	$username = 'username_here';
+    $password = 'password_here';
+    $domain = 'yourdomain.here';
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api');
+        
+    //coming soon
+    
+?>
+```
 
 removeDomain:
+```php
+<?php
+    require_once($path . '/application/libraries/Spamport_api.php');
+	
+    $username = 'username_here';
+    $password = 'password_here';
+    $domain = 'yourdomain.here';
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api');
+        
+    //coming soon
+    
+?>
+```
