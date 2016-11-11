@@ -16,6 +16,8 @@ class SpamPort_API {
 		
 		$this -> username = $username;
 		$this -> password = $password;
+		
+		if (! $this -> _isCurl()) print "Curl is required but not enabled";
 	
 	}
 	
@@ -38,7 +40,7 @@ class SpamPort_API {
 		
 		if ($errno) {
 			
-		  error_log("CURL error: Code: $errno, Message: $error");
+		  print "CURL error: Code: $errno, Message: $error";
 		  return false;
 		
 		} else {
@@ -47,6 +49,10 @@ class SpamPort_API {
 		
 		}
 		
+	}
+	
+	public function _isCurl(){
+	    return function_exists('curl_version');
 	}
 	
 	public function requestLogin ($domain) {
