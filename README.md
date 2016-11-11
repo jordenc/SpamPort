@@ -14,10 +14,11 @@ requestLogin:
 	
     $username = 'username_here';
     $password = 'password_here';
-    $domain = 'yourdomain.here';
         
     $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
-        
+	
+    $domain = 'yourdomain.here';
+    
     $response = $spamport -> requestLogin($domain);
     
     if ($spamport -> containsError($response)) {
@@ -40,7 +41,6 @@ addDomain:
 	
     $username = 'username_here';
     $password = 'password_here';
-    $domain = 'yourdomain.here';
         
     $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
@@ -74,7 +74,6 @@ removeDomain:
 	
     $username = 'username_here';
     $password = 'password_here';
-    $domain = 'yourdomain.here';
         
     $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
         
