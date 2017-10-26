@@ -5,7 +5,7 @@ class SpamPort_API {
 	protected $url = null;
 	protected $error = null;
 	protected $timeout = null;
-	protected $version = '1.0';
+	protected $version = '1.1';
 	protected $username = null;
 	protected $password = null;
 	
@@ -74,6 +74,14 @@ class SpamPort_API {
 	public function removeDomain ($domain) {
 		
 		$command = "version=" . $this -> version ."&function=remove&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function infoDomain ($domain) {
+		
+		$command = "version=" . $this -> version ."&function=info&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain;
 		
 		return $this -> _execute ($command);
 		

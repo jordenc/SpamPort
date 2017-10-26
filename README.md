@@ -3,7 +3,7 @@ PHP API class for SpamPort.com spam filtering
 
 Download our SpamPort_api.php file for easy integration of the https://www.spamport.com API. Simply fill in the fields to have access to the requestLogin, addDomain and removeDomain functions. More information on https://www.spamport.com/spam_api
 
-Current version: 1.0
+Current version: 1.1
 
 # Coding examples:
 
@@ -91,3 +91,33 @@ removeDomain:
 	
 ?>
 ```
+
+infoDomain:
+```php
+<?php
+    require_once('Spamport_api.php');
+	
+    $username = 'username_here';
+    $password = 'password_here';
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
+        
+    $domain = 'yourdomain.ext';
+        
+    $response = $spamport -> infoDomain($domain);
+        
+    if ($spamport -> containsError($response)) {
+
+        print $spamport -> returnError ($response);
+	
+    } else {
+	
+        print $spamport -> returnResult ($response);
+	
+    }
+	
+?>
+```
+
+Returns a JSON-encoded result set, for example:
+result={"domain":"spamport.com","transport":"smtp:mail.spamport.com","added":"2016-10-05","report_to":""}
