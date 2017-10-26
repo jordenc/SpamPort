@@ -120,4 +120,4 @@ infoDomain:
 ```
 
 Returns a JSON-encoded result set, for example:
-result={"domain":"spamport.com","transport":"smtp:mail.spamport.com","added":"2016-10-05","report_to":""}
+{"domain":"spamport.com","transport":"smtp:mail.spamport.com","added":"2016-10-05","report_to":""}
