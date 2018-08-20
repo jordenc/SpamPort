@@ -5,7 +5,7 @@ class SpamPort_API {
 	protected $url = null;
 	protected $error = null;
 	protected $timeout = null;
-	protected $version = '1.1';
+	protected $version = '1.2';
 	protected $username = null;
 	protected $password = null;
 	
@@ -82,6 +82,38 @@ class SpamPort_API {
 	public function infoDomain ($domain) {
 		
 		$command = "version=" . $this -> version ."&function=info&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function getDomains () {
+		
+		$command = "version=" . $this -> version ."&function=get_domains&username=" . $this -> username . "&password=" . $this -> password;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function newPassword ($domain) {
+		
+		$command = "version=" . $this -> version ."&function=new_password&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function setOutgoing ($domain, $outgoing, $transport) {
+		
+		$command = "version=" . $this -> version ."&function=set_outgoing&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&outgoing=" . $outgoing . "&transport=" . $transport;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function setReportTo ($domain, $report_to = "") {
+		
+		$command = "version=" . $this -> version ."&function=set_report_to&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&report_to=" . $report_to;
 		
 		return $this -> _execute ($command);
 		
