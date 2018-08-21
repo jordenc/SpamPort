@@ -123,11 +123,15 @@ class SpamPort_API {
 	
 	public function containsError ($result) {
 		
+		$result = json_decode ($result, true);
+		
 		if ( isset ($result['error']) ) return true; else return false;
 		
 	}
 	
 	public function returnError ($result) {
+		
+		$result = json_decode ($result, true);
 		
 		if ( isset ($result['error']) ) {
 			
@@ -138,6 +142,8 @@ class SpamPort_API {
 	}
 	
 	public function returnResult ($result) {
+		
+		$result = json_decode ($result, true);
 		
 		if ( isset ($result['result']) ) {
 			

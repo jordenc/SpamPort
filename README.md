@@ -109,18 +109,19 @@ Current version: 1.3
     if ($spamport -> containsError($response)) {
 
         print $spamport -> returnError ($response);
-	
+		
     } else {
+		
+		print '<pre>';
+		
+        print_r ($spamport -> returnResult ($response));
 	
-        print $spamport -> returnResult ($response);
-	
+		print '</pre>';
+		
     }
 	
 ?>
 ```
-
-Returns a JSON-encoded result set, for example:
-{"domain":"spamport.com","transport":"smtp:mail.spamport.com","added":"2016-10-05","report_to":""}
 
 ## getDomains:
 ```php
@@ -140,15 +141,16 @@ Returns a JSON-encoded result set, for example:
 	
     } else {
 	
-        print $spamport -> returnResult ($response);
+		print '<pre>';
+		
+        print_r ($spamport -> returnResult ($response));
 	
+		print '</pre>';
+		
     }
 	
 ?>
 ```
-
-Returns a JSON-encoded result set, for example:
-[{"domain":"spamport1.com","transport":"smtp:mail.spamport1.com","added":"2016-09-27","report_to":""},{"domain":"spamport2.com","transport":"smtp:mail.spamport2.com","added":"2016-09-28","report_to":"info@spamport2.com"}]
 
 ## newPassword:
 ```php
