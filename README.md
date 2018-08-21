@@ -3,7 +3,7 @@ PHP API class for SpamPort.com spam filtering
 
 Download our SpamPort_api.php file for easy integration of the https://www.spamport.com API. Simply fill in the fields to have access to the requestLogin, addDomain, removeDomain, infoDomain, getDomains, newPassword, setOutgoing and setReportTo functions. More information on https://www.spamport.com/spam_api
 
-Current version: 1.2
+Current version: 1.3
 
 # Coding examples:
 
@@ -34,7 +34,7 @@ requestLogin:
 ?>
 ```
 
-addDomain:
+## addDomain:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -65,7 +65,7 @@ addDomain:
 ?>
 ```
 
-removeDomain:
+## removeDomain:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -92,7 +92,7 @@ removeDomain:
 ?>
 ```
 
-infoDomain:
+## infoDomain:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -122,7 +122,7 @@ infoDomain:
 Returns a JSON-encoded result set, for example:
 {"domain":"spamport.com","transport":"smtp:mail.spamport.com","added":"2016-10-05","report_to":""}
 
-getDomains:
+## getDomains:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -150,7 +150,7 @@ getDomains:
 Returns a JSON-encoded result set, for example:
 [{"domain":"spamport1.com","transport":"smtp:mail.spamport1.com","added":"2016-09-27","report_to":""},{"domain":"spamport2.com","transport":"smtp:mail.spamport2.com","added":"2016-09-28","report_to":"info@spamport2.com"}]
 
-newPassword:
+## newPassword:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -179,7 +179,7 @@ newPassword:
 
 Returns the new (random) password
 
-setOutgoing:
+## setOutgoing:
 ```php
 <?php
     require_once('Spamport_api.php');
@@ -208,7 +208,7 @@ setOutgoing:
 ?>
 ```
 
-setReportTo:
+## setReportTo:
 ```php
 <?php
     require_once('Spamport_api.php');

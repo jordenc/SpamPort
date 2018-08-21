@@ -5,7 +5,7 @@ class SpamPort_API {
 	protected $url = null;
 	protected $error = null;
 	protected $timeout = null;
-	protected $version = '1.2';
+	protected $version = '1.3';
 	protected $username = null;
 	protected $password = null;
 	
@@ -52,7 +52,9 @@ class SpamPort_API {
 	}
 	
 	public function _isCurl(){
+		
 	    return function_exists('curl_version');
+	
 	}
 	
 	public function requestLogin ($domain) {
@@ -121,15 +123,15 @@ class SpamPort_API {
 	
 	public function containsError ($result) {
 		
-		if (substr ($result, 0, 6) == "error=") return true; else return false;
+		if ( isset ($result['error']) ) return true; else return false;
 		
 	}
 	
 	public function returnError ($result) {
 		
-		if (substr ($result, 0, 6) == "error=") {
+		if ( isset ($result['error']) ) {
 			
-			return substr ($result, 6);
+			return $result['error'];
 			
 		} else return false;
 		
@@ -137,9 +139,9 @@ class SpamPort_API {
 	
 	public function returnResult ($result) {
 		
-		if (substr ($result, 0, 7) == "result=") {
+		if ( isset ($result['result']) ) {
 			
-			return substr ($result, 7);
+			return $result['result'];
 			
 		} else return false;
 		
