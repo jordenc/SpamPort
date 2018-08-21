@@ -7,7 +7,7 @@ Current version: 1.3
 
 # Coding examples:
 
-requestLogin:
+## requestLogin:
 ```php
 <?php
     require_once('Spamport_api.php');
