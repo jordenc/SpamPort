@@ -3,7 +3,7 @@ PHP API class for SpamPort.com spam filtering
 
 Download our SpamPort_api.php file for easy integration of the https://www.spamport.com API. Simply fill in the fields to have access to the requestLogin, addDomain, removeDomain, infoDomain, getDomains, newPassword, setOutgoing and setReportTo functions. More information on https://www.spamport.com/spam_api
 
-Current version: 1.4
+Current version: 1.5
 
 # Coding examples:
 
