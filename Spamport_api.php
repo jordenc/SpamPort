@@ -146,7 +146,7 @@ class SpamPort_API {
 		
 		$result = json_decode ($result, true);
 		
-		if ($result['status'] == "success")
+		if ($result['status'] == "success") {
 			
 			return $result['message'];
 			
