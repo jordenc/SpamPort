@@ -126,7 +126,7 @@ class SpamPort_API {
 		
 		$result = json_decode ($result, true);
 		
-		if ( isset ($result['error']) ) return true; else return false;
+		if ($result['status'] == "failure") return true; else return false;
 		
 	}
 	
@@ -134,9 +134,9 @@ class SpamPort_API {
 		
 		$result = json_decode ($result, true);
 		
-		if ( isset ($result['error']) ) {
+		iif ($result['status'] == "failure") {
 			
-			return $result['error'];
+			return $result['message'];
 			
 		} else return false;
 		
@@ -146,9 +146,9 @@ class SpamPort_API {
 		
 		$result = json_decode ($result, true);
 		
-		if ( isset ($result['result']) ) {
+		if ($result['status'] == "success")
 			
-			return $result['result'];
+			return $result['message'];
 			
 		} else return false;
 		
