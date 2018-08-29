@@ -5,7 +5,7 @@ class SpamPort_API {
 	protected $url = null;
 	protected $error = null;
 	protected $timeout = null;
-	protected $version = '1.5';
+	protected $version = '1.6';
 	protected $plugin = 'phpclass';
 	protected $username = null;
 	protected $password = null;
