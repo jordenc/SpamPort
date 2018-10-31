@@ -3,7 +3,7 @@ PHP API class for SpamPort.com spam filtering
 
 Download our SpamPort_api.php file for easy integration of the https://www.spamport.com API. Simply fill in the fields to have access to the requestLogin, addDomain, removeDomain, infoDomain, getDomains, newPassword, setOutgoing and setReportTo functions. More information on https://www.spamport.com/spam_api
 
-Current version: 1.6
+Current version: 1.7
 
 # Coding examples:
 
@@ -51,8 +51,9 @@ Current version: 1.6
     $report_to = 'info@yourdomain.ext'; 	//optional
     $noscan = 0;							//Set to 1 to disable spamfilter for this domain
     $spamscore = "normal";					//Spamfilter strictness. Can be 'veryhigh' (might block legitimate mails), high, normal, low, very low (some spam might come through)
+    $greylist = 0;						//Disable greylisting
         
-    $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to);
+    $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to, $noscan, $spamscore, $greylist);
         
     if ($spamport -> containsError($response)) {
 
@@ -282,6 +283,34 @@ Returns the new (random) password
     $spamscore = 'normal';	//Can be 'veryhigh' (might block legitimate mails), 'high', 'normal', 'low', 'verylow' (some spam might come through)
     
     $response = $spamport -> setSpamscore($domain, $spamscore);
+        
+    if ($spamport -> containsError($response)) {
+
+        print $spamport -> returnError ($response);
+	
+    } else {
+	
+        print $spamport -> returnResult ($response);
+	
+    }
+	
+?>
+```
+
+## SetGreylist:
+```php
+<?php
+    require_once('Spamport_api.php');
+	
+    $username = 'username_here';
+    $password = 'password_here';
+        
+    $spamport = new SpamPort_API ('https://www.spamport.com/api', $username, $password);
+    
+    $domain = 'yourdomain.ext';
+    $greylist = '0';	//Set to 1 to enable greylisting, 0 will disable greylisting
+    
+    $response = $spamport -> setGreylist($domain, $greylist);
         
     if ($spamport -> containsError($response)) {
 

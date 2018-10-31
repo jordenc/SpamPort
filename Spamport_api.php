@@ -5,7 +5,7 @@ class SpamPort_API {
 	protected $url = null;
 	protected $error = null;
 	protected $timeout = null;
-	protected $version = '1.6';
+	protected $version = '1.7';
 	protected $plugin = 'phpclass';
 	protected $username = null;
 	protected $password = null;
@@ -66,9 +66,9 @@ class SpamPort_API {
 		
 	}
 	
-	public function addDomain ($domain, $smtpserver, $transport_type = 'hostname', $archive = 14, $report_to = false, $noscan = false, $spamscore = "normal") {
+	public function addDomain ($domain, $smtpserver, $transport_type = 'hostname', $archive = 14, $report_to = false, $noscan = false, $spamscore = "normal", $greylist = false) {
 		
-		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=add&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&transport=" . $smtpserver . '&transport_type=' . $transport_type . '&archive=' . $archive . '&report_to=' . $report_to . "&noscan=" . $noscan . "&spamscore=" . $spamscore;
+		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=add&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&transport=" . $smtpserver . '&transport_type=' . $transport_type . '&archive=' . $archive . '&report_to=' . $report_to . "&noscan=" . $noscan . "&spamscore=" . $spamscore . "&greylist=" . $greylist;
 		
 		return $this -> _execute ($command);
 		
@@ -133,6 +133,14 @@ class SpamPort_API {
 	public function setSpamscore ($domain, $spamscore = "normal") {
 		
 		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=set_spamscore&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&spamscore=" . $spamscore;
+		
+		return $this -> _execute ($command);
+		
+	}
+	
+	public function setGreylist ($domain, $greylist = 0) {
+		
+		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=set_greylist&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&greylist=" . $greylist;
 		
 		return $this -> _execute ($command);
 		
