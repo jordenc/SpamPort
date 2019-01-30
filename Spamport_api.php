@@ -66,9 +66,9 @@ class SpamPort_API {
 		
 	}
 	
-	public function addDomain ($domain, $smtpserver, $transport_type = 'hostname', $archive = 14, $report_to = false, $noscan = false, $spamscore = "normal", $greylist = false) {
+	public function addDomain ($domain, $smtpserver, $transport_type = 'hostname', $archive = 14, $report_to = false, $noscan = false, $spamscore = "normal", $greylist = false, $weekly = 0) {
 		
-		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=add&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&transport=" . $smtpserver . '&transport_type=' . $transport_type . '&archive=' . $archive . '&report_to=' . $report_to . "&noscan=" . $noscan . "&spamscore=" . $spamscore . "&greylist=" . $greylist;
+		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=add&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&transport=" . $smtpserver . '&transport_type=' . $transport_type . '&archive=' . $archive . '&report_to=' . $report_to . "&noscan=" . $noscan . "&spamscore=" . $spamscore . "&greylist=" . $greylist . "&weekly=" . $weekly;
 		
 		return $this -> _execute ($command);
 		
@@ -114,9 +114,9 @@ class SpamPort_API {
 		
 	}
 	
-	public function setReportTo ($domain, $report_to = "") {
+	public function setReportTo ($domain, $report_to = "", $weekly = 0;) {
 		
-		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=set_report_to&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&report_to=" . $report_to;
+		$command = "version=" . $this -> version ."&plugin=" . $this -> plugin . "&function=set_report_to&username=" . $this -> username . "&password=" . $this -> password . "&domain=" . $domain . "&report_to=" . $report_to . "&weekly=" . $weekly;
 		
 		return $this -> _execute ($command);
 		
