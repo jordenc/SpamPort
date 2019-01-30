@@ -54,7 +54,7 @@ Current version: 1.8
     $spamscore = "normal";					//Spamfilter strictness. Can be 'veryhigh' (might block legitimate mails), high, normal, low, very low (some spam might come through)
     $greylist = 0;						//Disable greylisting
         
-    $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to, $noscan, $spamscore, $greylist);
+    $response = $spamport -> addDomain($domain, $smtpserver, $transport_type, $archive, $report_to, $noscan, $spamscore, $greylist, $weekly);
         
     if ($spamport -> containsError($response)) {
 
